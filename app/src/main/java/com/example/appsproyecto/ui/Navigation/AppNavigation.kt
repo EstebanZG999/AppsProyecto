@@ -9,6 +9,15 @@ import androidx.navigation.compose.rememberNavController
 fun AppNavigation(){
     val navController = rememberNavController()
     NavHost(navController= navController, startDestination= TabScreens.MainScreen.route){
+        composable(route = TabScreens.MainScreen.route){
+
+        }
+        composable(route = TabScreens.BookPageScreen.route){
+
+        }
+        composable(route = TabScreens.ChatScreen.route){
+
+        }
 
     }
 }
