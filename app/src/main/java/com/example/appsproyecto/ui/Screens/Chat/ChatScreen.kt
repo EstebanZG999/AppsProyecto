@@ -22,6 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.appsproyecto.R
 import com.example.appsproyecto.ui.theme.AppsProyectoTheme
 
 class ChatScreen : ComponentActivity() {
@@ -53,7 +54,7 @@ fun pageContent() {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Image(
-                    painter = painterResource(id = R),
+                    painterResource(id = R.drawable.avatar),
                     contentDescription = "User Image",
                     modifier = Modifier
                         .size(40.dp)
@@ -79,7 +80,7 @@ fun pageContent() {
 
             // Placeholder Map Image
             Image(
-                painter = painterResource(id = ),
+                painterResource(id = R.drawable.map),
                 contentDescription = "Map Image",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
