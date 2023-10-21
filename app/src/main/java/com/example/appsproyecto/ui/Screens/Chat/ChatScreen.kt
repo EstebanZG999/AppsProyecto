@@ -11,6 +11,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -42,7 +43,7 @@ fun pageContent() {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.Blue)
+            .background(Color.Black)
     ) {
         Column {
             // Header
@@ -100,11 +101,22 @@ fun pageContent() {
                 OutlinedTextField(
                     value = "",
                     onValueChange = {},
-                    placeholder = { Text("Message...") },
-                    modifier = Modifier.weight(1f)
+                    placeholder = { Text("Message...", color = Color.White) },
+                    modifier = Modifier.weight(1f).fillMaxWidth(),
+                    colors = TextFieldDefaults.outlinedTextFieldColors(
+                        textColor = Color.White,
+                        cursorColor = Color.White,
+                        placeholderColor = Color.White,
+                        focusedBorderColor = Color.White,
+                        unfocusedBorderColor = Color.White
+                    )
                 )
                 Spacer(modifier = Modifier.width(8.dp))
-                Icon(Icons.Default.Send, contentDescription = "Send Message")
+                Icon(
+                    Icons.Default.Send,
+                    contentDescription = "Send Message",
+                    tint = Color.White
+                )
             }
         }
     }
