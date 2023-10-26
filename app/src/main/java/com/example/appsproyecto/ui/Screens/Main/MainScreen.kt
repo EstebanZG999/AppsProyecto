@@ -221,7 +221,8 @@ fun principal(navController: NavController) {
                         Card(modifier = Modifier
                             .width(185.dp)
                             .height(240.dp)
-                            .padding(10.dp)) {
+                            .padding(10.dp)
+                            .clickable { navController.navigate(route = TabScreens.AdventureScreen.route) }) {
                             Box(modifier = Modifier
                                 .size(180.dp)
                                 .padding(10.dp)
@@ -248,8 +249,9 @@ fun principal(navController: NavController) {
                         Card(modifier = Modifier
                             .width(185.dp)
                             .height(240.dp)
-                            .padding(10.dp)) {
-                            Box(modifier = Modifier
+                            .padding(10.dp)
+                            .clickable { navController.navigate(route = TabScreens.HorrorScreen.route) }) {
+                        Box(modifier = Modifier
                                 .size(180.dp)
                                 .padding(10.dp)
                                 .background(Color.White)){
@@ -279,8 +281,9 @@ fun principal(navController: NavController) {
                         Card(modifier = Modifier
                             .width(185.dp)
                             .height(240.dp)
-                            .padding(10.dp)) {
-                            Box(modifier = Modifier
+                            .padding(10.dp)
+                            .clickable { navController.navigate(route = TabScreens.ActionScreen.route) }) {
+                        Box(modifier = Modifier
                                 .size(180.dp)
                                 .padding(10.dp)
                                 .background(Color.White)){
@@ -306,8 +309,9 @@ fun principal(navController: NavController) {
                         Card(modifier = Modifier
                             .width(185.dp)
                             .height(240.dp)
-                            .padding(10.dp)) {
-                            Box(modifier = Modifier
+                            .padding(10.dp)
+                            .clickable { navController.navigate(route = TabScreens.RomanceScreen.route) }) {
+                        Box(modifier = Modifier
                                 .size(180.dp)
                                 .padding(10.dp)
                                 .background(Color.White)){
