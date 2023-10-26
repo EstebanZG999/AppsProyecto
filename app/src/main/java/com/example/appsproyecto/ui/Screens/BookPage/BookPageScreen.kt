@@ -14,7 +14,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -26,7 +30,10 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.appsproyecto.R
+import com.example.appsproyecto.ui.Navigation.AppNavigation
+import com.example.appsproyecto.ui.Navigation.TabScreens
 import com.example.appsproyecto.ui.theme.AppsProyectoTheme
 
 class BookPageScreen : ComponentActivity() {
@@ -34,7 +41,7 @@ class BookPageScreen : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             AppsProyectoTheme {
-                pageContent()
+                AppNavigation()
             }
         }
     }
@@ -45,7 +52,7 @@ fun bookPageScreen(){
     Column(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        pageContent()
+        AppNavigation()
     }
 }
 
@@ -53,12 +60,12 @@ fun bookPageScreen(){
 @Composable
 fun BookPreview(){
     AppsProyectoTheme {
-        pageContent()
+        AppNavigation()
     }
 }
 
 @Composable
-fun pageContent(){
+fun pageContent(navController: NavController){
     LazyColumn(modifier = Modifier
         .fillMaxSize()
         .background(Color.Black)
@@ -74,11 +81,19 @@ fun pageContent(){
                     contentScale = ContentScale.Crop
                 )
 
+                IconButton(onClick = { navController.popBackStack() }, modifier = Modifier.padding(16.dp)) {
+                    Icon(
+                        Icons.Default.ArrowBack,
+                        contentDescription = "Back",
+                        tint = Color.White
+                    )
+                }
+
                 Row(modifier = Modifier.padding(horizontal = 15.dp)
                 ) {
                     Column {
                         Box(modifier = Modifier
-                            .padding(horizontal = 30.dp)
+                            .padding(horizontal = 45.dp)
                             .width(140.dp)
                             .padding(top = 15.dp)
                             .padding(bottom = 15.dp)
@@ -119,7 +134,7 @@ fun pageContent(){
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Button(
-                        onClick = { /*TODO*/ },
+                        onClick = {navController.navigate(route = TabScreens.ChatScreen.route) },
                         modifier = Modifier
                             .width(200.dp)
                             .height(50.dp)

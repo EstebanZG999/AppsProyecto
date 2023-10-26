@@ -6,9 +6,11 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Send
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
@@ -23,7 +25,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.appsproyecto.R
+import com.example.appsproyecto.ui.Navigation.AppNavigation
 import com.example.appsproyecto.ui.theme.AppsProyectoTheme
 
 class ChatScreen : ComponentActivity() {
@@ -31,7 +35,7 @@ class ChatScreen : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             AppsProyectoTheme {
-                pageContent()
+                AppNavigation()
             }
         }
     }
@@ -39,7 +43,7 @@ class ChatScreen : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun pageContent() {
+fun ChatContent(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -54,6 +58,14 @@ fun pageContent() {
                     .background(Color.Gray),
                 verticalAlignment = Alignment.CenterVertically
             ) {
+                IconButton(onClick = { navController.popBackStack() }) {
+                    Icon(
+                        Icons.Default.ArrowBack,
+                        contentDescription = "Back",
+                        tint = Color.White
+                    )
+                }
+
                 Image(
                     painterResource(id = R.drawable.avatar),
                     contentDescription = "User Image",
@@ -102,7 +114,9 @@ fun pageContent() {
                     value = "",
                     onValueChange = {},
                     placeholder = { Text("Message...", color = Color.White) },
-                    modifier = Modifier.weight(1f).fillMaxWidth(),
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxWidth(),
                     colors = TextFieldDefaults.outlinedTextFieldColors(
                         textColor = Color.White,
                         cursorColor = Color.White,
@@ -126,6 +140,6 @@ fun pageContent() {
 @Composable
 fun DefaultPreview() {
     AppsProyectoTheme {
-        pageContent()
+        AppNavigation()
     }
 }
