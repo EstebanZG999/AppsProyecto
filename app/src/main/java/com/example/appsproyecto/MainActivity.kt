@@ -60,7 +60,7 @@ class MainActivity : ComponentActivity() {
 
                             }
                         )
-                        
+
                         LaunchedEffect(key1 = state.isSignInSuccessful){
                             if (state.isSignInSuccessful){
                                 Toast.makeText(
@@ -73,7 +73,10 @@ class MainActivity : ComponentActivity() {
 
                         SignInScreen(
                             state = state,
-                            onSignInClick = {
+                            onSignInClick = { email, password ->
+                                viewModel.signInWithEmail(email, password)
+                            },
+                            onGoogleSignInClick = {
                                 lifecycleScope.launch {
                                     val signInIntentSender = googleAuthUiClient.signIn()
                                     launcher.launch(
