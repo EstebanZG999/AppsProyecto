@@ -69,6 +69,10 @@ dependencies {
     //Firebase and google sig-in
     implementation 'com.google.firebase:firebase-auth-ktx:22.2.0'
     implementation 'com.google.android.gms:play-services-auth:20.7.0'
+    implementation "androidx.compose.runtime:runtime-livedata:<1.4.4>"
+    //implementation "androidx.compose.runtime:runtime-livedata"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.0"
+    implementation "androidx.lifecycle:lifecycle-runtime-compose:2.6.0"
     //Remote image remotly with Coil
     implementation 'io.coil-kt:coil-compose:2.2.2'
     //Navegation

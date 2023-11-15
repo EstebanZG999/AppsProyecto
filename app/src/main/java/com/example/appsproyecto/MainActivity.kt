@@ -12,6 +12,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
@@ -44,7 +45,7 @@ class MainActivity : ComponentActivity() {
                 NavHost(navController = navController, startDestination = "sign_in" ){
                     composable("sign_in"){
                         val viewModel = viewModel<SignInViewModel>()
-                        val state by viewModel.state.collectAsState() // Original "collectAsStateWithLifecycle()"
+                        val state by viewModel.state.collectAsStateWithLifecycle() // Original "collectAsStateWithLifecycle()"
                         
                         val launcher = rememberLauncherForActivityResult(
                             contract = ActivityResultContracts.StartIntentSenderForResult(),

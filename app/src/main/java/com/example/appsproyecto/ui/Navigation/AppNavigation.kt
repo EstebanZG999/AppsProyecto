@@ -42,5 +42,8 @@ fun AppNavigation(){
         composable(route = TabScreens.RomanceScreen.route){
             romance(navController)
         }
+        composable(route = TabScreens.SignInScreen.route){
+            romance(navController)
+        }
     }
 }
