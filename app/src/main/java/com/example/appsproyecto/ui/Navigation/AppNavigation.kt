@@ -9,6 +9,7 @@ import com.example.appsproyecto.ui.Screens.Action.actionB
 import com.example.appsproyecto.ui.Screens.Adventure.adventure
 import com.example.appsproyecto.ui.Screens.BookPage.pageContent
 import com.example.appsproyecto.ui.Screens.Horror.horror
+import com.example.appsproyecto.ui.Screens.Login.LoginScreen
 import com.example.appsproyecto.ui.Screens.Main.principal
 import com.example.appsproyecto.ui.Screens.ProfileScreen.profile
 import com.example.appsproyecto.ui.Screens.Romance.romance
@@ -17,7 +18,7 @@ import com.example.appsproyecto.ui.Screens.Romance.romance
 @Composable
 fun AppNavigation(){
     val navController = rememberNavController()
-    NavHost(navController= navController, startDestination= TabScreens.MainScreen.route){
+    NavHost(navController= navController, startDestination= TabScreens.LoginScreen.route){
         composable(route = TabScreens.MainScreen.route){
             principal(navController)
         }
@@ -41,6 +42,9 @@ fun AppNavigation(){
         }
         composable(route = TabScreens.RomanceScreen.route){
             romance(navController)
+        }
+        composable(route = TabScreens.LoginScreen.route){
+            LoginScreen(navController)
         }
     }
 }
